@@ -16,12 +16,7 @@
     "build-analyze": "NODE_ENV=analysis webpack",
     "clean": "rm -r ./public/*"
   },
-  "@std/esm": {
-    "esm": "js",
-    "cjs": false
-  },
   "dependencies": {
-    "@std/esm": "^0.3.0",
     "convict": "^4.0.0",
     "express": "^4.15.4",
     "particle-api-js": "^6.5.0",

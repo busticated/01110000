@@ -5,4 +5,9 @@ const { log, debug, info, warn, error } = levels.reduce((obj, level) => {
     return obj;
 }, {});
 
-export { log as default, debug, info, warn, error };
+
+module.exports = log;
+module.exports.debug = debug;
+module.exports.info = info;
+module.exports.warn = warn;
+module.exports.error = error;

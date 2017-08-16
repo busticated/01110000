@@ -1,4 +1,3 @@
-require('@std/esm');
 const path = require('path');
 const ParticleAPI = require('particle-api-js');
 const httpStatus = require('statuses');
