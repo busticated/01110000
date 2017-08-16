@@ -27,5 +27,13 @@ module.exports = convict({
             format: String,
             env: 'PATHS_CLIENT_SRC'
         }
+    },
+    api: {
+        token: {
+            doc: 'access token used to authorize particle api requests',
+            default: '',
+            format: String,
+            env: 'API_TOKEN'
+        }
     }
 });
