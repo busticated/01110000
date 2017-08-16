@@ -11,6 +11,7 @@ node_modules
 *.js.map
 
 # build artifacts / built assets
+.esm-cache
 public
 log
 tmp
