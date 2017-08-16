@@ -1,0 +1,21 @@
+{
+    "name": "P",
+    "regions": ["us-east-1"],
+    "environment": {
+        "NODE_ENV": "production"
+    },
+    "certs": [
+        {
+            "domains": [
+                "01110000.busticated.co",
+                "test.01110000.busticated.co",
+                "dev.01110000.busticated.co"
+            ]
+        }
+    ],
+    "error_pages": {
+        "variables": {
+            "color": "#00ADEF"
+        }
+    }
+}
