@@ -20,6 +20,12 @@ module.exports = convict({
             default: './public',
             format: String,
             env: 'PATHS_PUBLIC'
+        },
+        clientSrc: {
+            doc: 'location of client application files',
+            default: './src/client',
+            format: String,
+            env: 'PATHS_CLIENT_SRC'
         }
     }
 });
