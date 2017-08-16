@@ -1,0 +1,11 @@
+{
+  "name": "01110000",
+  "version": "1.0.0",
+  "description": "a sandbox for experimenting with the particle api",
+  "author": "busticated",
+  "license": "UNLICENSED",
+  "main": "src/app.js",
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {}
+}

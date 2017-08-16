@@ -1,0 +1,16 @@
+# macOS
+.DS_Store*
+Icon?
+
+# npm
+node_modules
+*.log
+*.gz
+
+# source maps
+*.js.map
+
+# build artifacts / built assets
+public
+log
+tmp
