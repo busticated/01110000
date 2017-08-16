@@ -4,6 +4,7 @@ const HtmlPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const BabiliPlugin = require('babili-webpack-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const config = require('./src/config');
 const shellHTML = require('./src/client/shell');
 const publicDir = config.get('paths.public');
@@ -17,12 +18,24 @@ module.exports = function(env = process.env.NODE_ENV){
         devtool: false,
         plugins: [],
         entry: {
-            bundle: path.join(__dirname, clientSrcDir, 'index.js')
+            bundle: path.join(__dirname, clientSrcDir, 'index.js'),
+            styles: path.join(__dirname, clientSrcDir, '/styles/main.scss')
         },
         output: {
             filename: '[name].js',
             publicPath: publicDir,
             path: path.join(__dirname, publicDir)
+        },
+        module: {
+            rules: [{
+                test: /\.scss$/,
+                use: ExtractTextPlugin.extract({
+                    use: [
+                        { loader: 'css-loader' },
+                        { loader: 'sass-loader' }
+                    ]
+                })
+            }]
         }
     };
 
@@ -40,11 +53,14 @@ module.exports = function(env = process.env.NODE_ENV){
         { from: path.join(clientSrcDir, 'static'), to: './' }
     ]));
 
+    cfg.plugins.push(new ExtractTextPlugin({ filename: '[name].css' }));
+
     cfg.plugins.push(new HtmlPlugin({
         inject: false,
         filename: 'shell.html',
         templateContent: shellHTML({
             js: path.join('/', publicDir, 'bundle.js'),
+            css: path.join('/', publicDir, 'styles.css'),
             favicon: path.join('/', publicDir, 'favicon.ico'),
             title: config.get('name')
         })
@@ -53,6 +69,7 @@ module.exports = function(env = process.env.NODE_ENV){
     cfg.plugins.push(new WorkboxPlugin({
         globDirectory: path.join(__dirname, publicDir),
         globPatterns: ['**/*.{html,js,css,ico}'],
+        globIgnores: ['styles.js'], // TODO (mirande): https://github.com/webpack/webpack/issues/1967
         swSrc: path.join(clientSrcDir, 'service-worker.js'),
         swDest: path.join(publicDir, 'sw.js')
     }));

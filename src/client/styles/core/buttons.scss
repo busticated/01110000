@@ -1,0 +1,61 @@
+.btn {
+  margin-bottom: 10px;
+  @include solid-button($spark-blue);
+}
+
+.secondary-btn {
+  @include secondary-button($spark-blue);
+}
+
+
+.btn[disabled] {
+  opacity: 0.4;
+}
+
+.btn-clear {
+  clear: both;
+  display: block;
+}
+
+.nav-btn {
+  @include nav-button($white);
+}
+
+
+.btn, .secondary-btn {
+  font-size: 12px;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+.btn-green {
+  background: $emerald;
+
+  &:hover {
+    background: $nephritis;
+  }
+}
+
+.btn-orange {
+  background: $carrot;
+
+  &:hover {
+    background: $pumpkin;
+  }
+}
+
+.btn-yellow {
+  background: $sunflower;
+
+  &:hover {
+    background: $orange;
+  }
+}
+
+.btn-purple {
+  background: $amethyst;
+
+  &:hover {
+    background: $wisteria;
+  }
+}

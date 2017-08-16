@@ -1,0 +1,134 @@
+#header {
+  h1 {
+    font-weight: 100;
+    font-size: 48px;
+  }
+  .nav {
+    .links.links-left {
+      @include float-left;
+    }
+    .logo-container {
+      @include span-columns(4);
+      @include media($medium-only) {
+        @include span-columns(3);
+      }
+      @include media($large-up) {
+        @include span-columns(3);
+      }
+    }
+    .middle-content {
+      display: none;
+      @include media($medium-only) {
+        display: block;
+        @include span-columns(6);
+      }
+      @include media($large-up) {
+        @include span-columns(6);
+        display: block;
+      }
+    }
+    .links.links-right {
+      @include span-columns(8);
+      @include media($medium-only) {
+        @include span-columns(3);
+      }
+      @include media($large-up) {
+        @include span-columns(3);
+      }
+      text-align: right;
+    }
+    .links a {
+      color: $almost-black;
+
+      &:hover {
+        color: $gray;
+      }
+    }
+
+    .build a {
+      background: $spark-blue;
+      color: $white;
+
+      &:hover {
+        background: $spark-blue-dark;
+        color: $white;
+      }
+    }
+    margin: 20px 0;
+    width: 100%;
+
+    img.logo {
+      width: 100px;
+      margin-top: 7px;
+      @include media($medium-up) {
+        width: 130px;
+        float: left;
+        margin-top: 0;
+      }
+    }
+
+
+    .links > a, .dropdown > a, .build a {
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 8px 12px 8px;
+      margin-top: 14px;
+      //margin-right: 12px;
+      font-size: 12px;
+      float: left;
+      @include transition(color 0.2s linear);
+    }
+
+
+    a.pill {
+      border: 2px solid $white;
+      border-radius: 4px;
+      margin-left: 18px;
+      padding-top: 6px;
+      padding-bottom: 6px;
+    }
+
+    a.pill:hover, a.pill:focus {
+      background: $translucent-black;
+      color: $translucent-white;
+    }
+
+    .resources-chev {
+      margin-left: 8px;
+    }
+
+    .dropdown-menu  {
+      min-width: 124px;
+    }
+
+    .dropdown-menu > li > a {
+      padding: 3px 10px;
+      font-weight: 300;
+      font-size: 12px;
+    }
+  }
+}
+
+ul.dropdown-menu {
+  top: 45px;
+}
+
+.dropdown {
+  float: right;
+}
+
+.nav .open > a, .nav .open > a:focus, .nav .open > a:hover {
+  background-color: initial;
+  border-color: initial;
+  color: initial;
+}
+
+.nav .dropdown:hover > ul.dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus, .dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
+  background-color: initial;
+  color: $spark-blue;
+  background-image: none;
+}

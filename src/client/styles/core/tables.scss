@@ -1,0 +1,48 @@
+/* INTENDED TO BE USED WITH ZURB'S RESPONSIVE TABLES http://zurb.com/playground/responsive-tables */
+table thead {
+  background: $almost-white;
+  border-bottom: 1px solid $light-gray;
+  th {
+    font-weight: 500;
+    text-align: left;
+    color: $gray;
+  }
+}
+
+table {
+  border: 1px solid $light-gray;
+  width: 100%;
+  td, th {
+    padding: 20px 15px;
+    font-weight: 300;
+  }
+}
+table tbody {
+  tr {
+    border-bottom: 1px solid $light-gray;
+  }
+}
+
+span.undefined-attr {
+  color: $gray;
+  font-style: italic;
+}
+
+
+
+/* Foundation v2.1.4 http://foundation.zurb.com */
+/* Artfully masterminded by ZURB  */
+
+/* Mobile */
+@media only screen and (max-width: 1147px) {
+  table.responsive { margin-bottom: 0; border-left: none; border-right: none; }
+  .pinned { position: absolute; left: 0; top: 0; background: #fff; width: 35%; overflow: hidden; overflow-x: scroll; border-left: 1px solid $light-gray; border-right: 1px solid $light-gray;}
+  .pinned table { border-right: none; border-left: none; width: 100%; }
+  .pinned table th, .pinned table td { white-space: nowrap; font-size: 12px; }
+  .pinned td:last-child { border-bottom: 0; }
+  div.table-wrapper { position: relative; margin-bottom: 20px; overflow: hidden; border-right: 1px solid #ccc; }
+  div.table-wrapper div.scrollable { margin-left: 35%; }
+  div.table-wrapper div.scrollable { overflow: scroll; overflow-y: hidden; }
+  table.responsive td, table.responsive th { position: relative; white-space: nowrap; overflow: hidden; font-size: 12px;}
+  table.responsive th:first-child, table.responsive td:first-child, table.responsive td:first-child, table.responsive.pinned td { display: none; }
+}

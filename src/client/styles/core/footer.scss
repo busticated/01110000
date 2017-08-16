@@ -1,0 +1,70 @@
+footer {
+  @include row();
+
+  margin-top: 50px;
+
+  .footer-wrapper {
+    @include outer-container(90%);
+  }
+
+  h1, h2, h3, h4, h5, h6, p, span, a, ul, li, button, input {
+    font-family: $fonts;
+  }
+
+  background: $almost-white;
+  border-top: 1px solid $light-gray;
+  color: $gray;
+  padding: 80px 0;
+
+  h5 {
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  ul {
+    margin-left: 0;
+    padding-left: 0;
+    @include media($medium-up) {
+      @include span-columns(3);
+    }
+  }
+
+  li {
+    list-style: none;
+  }
+
+  a {
+    color: $gray;
+  }
+
+  a:hover, a:focus {
+    color: $dark-gray;
+    text-decoration: none;
+  }
+
+  .newsletter-signups {
+    @include media($medium-up) {
+      @include span-columns(3);
+    }
+  }
+
+  input#fieldEmail {
+    background-color: transparent;
+    border: 0;
+    border-left: 4px solid $gray;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  input#fieldEmail:focus {
+    box-shadow: none;
+    color: $gray;
+    border-color: $spark-blue;
+  }
+
+  .outcome {
+    margin-top: 8px;
+  }
+}

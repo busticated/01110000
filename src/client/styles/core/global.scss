@@ -1,0 +1,46 @@
+/* Spark global styles */
+
+body {
+  background: $white;
+  position: relative;
+  line-height: $base-line-height;
+  font-size: $base-font-size;
+
+  p, ul, li, a, span {
+    font-weight: 300;
+  }
+  ul, ol {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+}
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+a {
+  color: $spark-blue;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.content {
+  @include outer-container();
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  overflow: auto;
+}
+
+
+// @font-face {
+//   font-family: 'Glyphicons Halflings';
+//   src: url('../assets/glyphicons-halflings-regular.eot');
+//   src: url('../assets/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
+//   url('../assets/glyphicons-halflings-regular.woff') format('woff'),
+//   url('../assets/glyphicons-halflings-regular.ttf') format('truetype'),
+//   url('../assets/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+// }
+
