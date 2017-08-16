@@ -5,7 +5,13 @@
   "author": "busticated",
   "license": "UNLICENSED",
   "main": "src/app.js",
-  "scripts": {},
-  "dependencies": {},
-  "devDependencies": {}
+  "scripts": {
+    "start": "node ./src/app.js",
+    "start-debug": "nodemon --debug ./src/app.js",
+    "lint": "eslint 'src/**/*.js'"
+  },
+  "devDependencies": {
+    "eslint": "4.4.1",
+    "nodemon": "1.11.0"
+  }
 }
