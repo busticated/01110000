@@ -13,5 +13,13 @@ module.exports = convict({
         default: 3000,
         format: 'port',
         env: 'PORT'
+    },
+    paths: {
+        public: {
+            doc: 'public directory used to serve static files',
+            default: './public',
+            format: String,
+            env: 'PATHS_PUBLIC'
+        }
     }
 });

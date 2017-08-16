@@ -4,12 +4,21 @@ const httpStatus = require('statuses');
 const express = require('express');
 const config = require('./config');
 const log = require('./logger');
+const publicDir = config.get('paths.public');
 const port = config.get('port');
+const serveStatic = express.static(publicDir);
 const app = express();
 
 
 app.enable('trust proxy');
 app.disable('x-powered-by');
+app.use(path.join('/', publicDir), (req, res, next) => {
+    // express.static accepts a 'setHeaders' but this simplifies path matching
+    if (req.path === '/sw.js'){
+        res.setHeader('Service-Worker-Allowed', '/');
+    }
+    serveStatic(req, res, next);
+});
 
 app.get('/ping/:code?', (req, res) => {
     const code = req.params.code;
