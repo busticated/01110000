@@ -5,12 +5,14 @@ const CopyPlugin = require('copy-webpack-plugin');
 const BabiliPlugin = require('babili-webpack-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const config = require('./src/config');
 const shellHTML = require('./src/client/shell');
 const publicDir = config.get('paths.public');
 const clientSrcDir = config.get('paths.clientSrc');
 const ENV_PROD = 'production';
 const ENV_DEV = 'development';
+const ENV_ANALYSIS = 'analysis';
 
 
 module.exports = function(env = process.env.NODE_ENV){
@@ -39,12 +41,22 @@ module.exports = function(env = process.env.NODE_ENV){
         }
     };
 
-    if (env === ENV_PROD){
+    if (env === ENV_PROD || env === ENV_ANALYSIS){
         cfg.plugins.push(new webpack.DefinePlugin({
             'process.env': { NODE_ENV: JSON.stringify('production') }
         }));
 
         cfg.plugins.push(new BabiliPlugin());
+
+        if (env === ENV_ANALYSIS){
+            cfg.plugins.push(new BundleAnalyzerPlugin({
+                analyzerMode: 'server',
+                analyzerPort: 8888,
+                openAnalyzer: true,
+                generateStatsFile: true,
+                statsFilename: 'stats.json'
+            }));
+        }
     } else {
         cfg.devtool = 'inline-source-map';
     }
@@ -83,6 +95,10 @@ module.exports.get = function(env){
 
 module.exports.getForProduction = function(){
     return module.exports(ENV_PROD);
+};
+
+module.exports.getForAnalysis = function(){
+    return module.exports(ENV_ANALYSIS);
 };
 
 module.exports.getForDevelopment = function(){
