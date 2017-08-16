@@ -47,5 +47,9 @@ app.get('/api/libraries/:name?', (req, res) => {
         .catch(error => res.status(error.statusCode).json(error.body));
 });
 
+app.get('/*', (req, res) => {
+    res.sendFile(path.resolve('./public/shell.html'));
+});
+
 log.info(':::::: %s listening on port: %s', config.get('name'), port);
 app.listen(port);
