@@ -96,6 +96,29 @@ body {
 
 
 
+// HOME ///////////////////////////////////////////////////////////////////////
+.home {
+    @extend %layout;
+
+    > main {
+        justify-content: center;
+    }
+}
+
+.home-content {
+    @extend %layout-content;
+    max-width: 33em;
+}
+
+.home-logo {
+    margin-bottom: 3em;
+}
+
+.home-libs-btn {
+    @extend .btn;
+}
+
+
 // LIBS ///////////////////////////////////////////////////////////////////////
 .libs {
     @extend %layout;
