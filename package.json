@@ -6,6 +6,7 @@
   "license": "UNLICENSED",
   "main": "src/app.js",
   "scripts": {
+    "postinstall": "npm run build",
     "dev": "npm run clean && npm run build-debug & npm run start-debug",
     "start": "node ./src/app.js",
     "start-debug": "nodemon --debug ./src/app.js",
