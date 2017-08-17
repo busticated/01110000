@@ -95,6 +95,68 @@ body {
 }
 
 
+
+// LIBS ///////////////////////////////////////////////////////////////////////
+.libs {
+    @extend %layout;
+
+    > main {
+        justify-content: center;
+    }
+}
+
+.libs-content {
+    @extend %layout-content;
+
+    > hr {
+        height: 0;
+        border: 0;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+}
+
+.libs-list {
+    margin: 0 0 4em 0;
+    padding: 0;
+    list-style: none;
+}
+
+.libs-list-item-left,
+.libs-list-item-right {
+    display: inline-block;
+    padding: 0 2em 0 0;
+    vertical-align: middle;
+}
+
+.libs-list-item-left {
+    width: 75%;
+    text-align: right;
+
+    h2 {
+        @extend %txt-nowrap;
+    }
+
+    p {
+        word-break: break-word;
+    }
+}
+
+.libs-list-item-right {
+    width: 25%;
+    text-align: left;
+}
+
+.libs-detail-btn {
+    @extend .secondary-btn;
+}
+
+.libs-next-btn,
+.libs-prev-btn {
+    @extend .btn;
+    margin: 1em 2em;
+}
+
+
 // SDK ///////////////////////////////////////////////////////////////////////
 .sdk {
     @extend %layout;
