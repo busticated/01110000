@@ -93,3 +93,53 @@ body {
     white-space: nowrap;
     word-break: break-word;
 }
+
+
+// SDK ///////////////////////////////////////////////////////////////////////
+.sdk {
+    @extend %layout;
+
+    > main {
+        justify-content: center;
+    }
+}
+
+.sdk-content {
+    @extend %layout-content;
+    max-width: 33em;
+}
+
+.sdk-close-btn {
+    @extend %btn-glyph;
+    position: absolute;
+    top: 2em;
+    right: 2em;
+}
+
+.sdk-card {
+    h1 {
+        @extend %txt-nowrap;
+        max-width: 9em;
+    }
+
+    table {
+        margin-bottom: 3em;
+    }
+}
+
+.sdk-card-download-btn {
+    @extend .btn;
+}
+
+@include media($xsmall-only){
+    .sdk-content {
+        padding: 0;
+    }
+
+    .sdk-close-btn {
+        top: 1em;
+        right: 1em;
+        width: 1.5em;
+        height: 1.5em;
+    }
+}
