@@ -1,6 +1,5 @@
-
-$color-white: #ffffff;
-$color-red: #ff0000;
+// OVERRIDES //////////////////////////////////////////////////////////////////
+$em-base: 16px;
 
 @import 'bourbon/bourbon';
 @import 'neat/neat';
@@ -8,9 +7,89 @@ $color-red: #ff0000;
 @import 'core/mixins.scss';
 @import 'core/normalize.scss';
 @import 'core/global.scss';
+@import 'core/type.scss';
+@import 'core/tables.scss';
 @import 'core/buttons.scss';
 
+$content-max-width: em(1080px);
+$content-padding: 3em;
+
+// BASE ///////////////////////////////////////////////////////////////////////
+html {
+    position: relative;
+    min-height: 100%;
+    -webkit-text-size-adjust: none;
+    font-size: $em-base;
+    font-family: $base-font-family;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
 body {
-    color: $carrot;
-    background-color: $color-white;
+    background-color: $almost-white;
+    overflow-y: scroll;
+
+    &.has-modal,
+    &.no-scroll {
+        width: 100%;
+        overflow: hidden;
+
+        .ipad & {
+            position: fixed; // prevents mobile safari from losing its tiny mind when software keyboard is shown
+        }
+    }
+}
+
+
+// LAYOUT /////////////////////////////////////////////////////////////////////
+%layout {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+
+    > main {
+        display: flex;
+        width: 100%;
+        flex: 1 0 auto;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    &.layout--centered {
+        > main {
+            justify-content: center;
+        }
+    }
+}
+
+%layout-content {
+    width: 100%;
+    max-width: $content-max-width;
+    margin: 0 auto;
+    padding: $content-padding;
+    text-align: center;
+}
+
+%btn-glyph {
+    display: block;
+    width: 2em;
+    height: 2em;
+    cursor: pointer;
+
+    > span {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+
+    &:active {
+        transform: scale(.9);
+    }
+}
+
+%txt-nowrap {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-break: break-word;
 }
