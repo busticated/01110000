@@ -4,4 +4,4 @@ const wb = new self.WorkboxSW({ clientsClaim: true, skipWaiting: true });
 
 wb.precache([]); // workbox injects manifest for static files here
 wb.router.registerNavigationRoute('shell.html', { whitelist: [/./] });
-wb.router.registerRoute('/api/libraries/:name?', wb.strategies.networkFirst());
+wb.router.registerRoute('/api/libraries/(.*)', wb.strategies.networkFirst());
