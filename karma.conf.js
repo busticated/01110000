@@ -8,7 +8,16 @@ module.exports = function(cfg){
             'src/client/**/*.test.js': ['webpack', 'sourcemap']
         },
         webpackPort: 9877,
-        webpack: { devtool: 'eval' },
+        webpack: {
+            devtool: 'inline-source-map',
+            resolve: {
+                alias: {
+                    'react': 'preact-compat',
+                    'react-dom': 'preact-compat',
+                    'create-react-class': 'preact-compat/lib/create-react-class'
+                }
+            }
+        },
         plugins: [
             'karma-mocha',
             'karma-mocha-reporter',

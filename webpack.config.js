@@ -28,6 +28,13 @@ module.exports = function(env = process.env.NODE_ENV){
             publicPath: publicDir,
             path: path.join(__dirname, publicDir)
         },
+        resolve: {
+            alias: {
+                'react': 'preact-compat',
+                'react-dom': 'preact-compat',
+                'create-react-class': 'preact-compat/lib/create-react-class'
+            }
+        },
         module: {
             rules: [{
                 test: /\.scss$/,

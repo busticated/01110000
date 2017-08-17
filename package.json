@@ -20,6 +20,10 @@
     "convict": "^4.0.0",
     "express": "^4.15.4",
     "particle-api-js": "^6.5.0",
+    "preact": "^8.2.1",
+    "preact-compat": "^3.17.0",
+    "preact-router": "^2.5.5",
+    "prop-types": "^15.5.10",
     "statuses": "^1.3.1"
   },
   "devDependencies": {
